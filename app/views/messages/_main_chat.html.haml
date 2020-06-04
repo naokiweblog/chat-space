@@ -1,0 +1,37 @@
+.Main-chat
+  .Main-chat__group-info
+    .Main-chat__group-info--left
+      .current-group
+        test
+      %ul.Member
+        Member：
+        %li.Member__example
+          masa
+    = link_to "#", class: "Main-chat__group-info--edit" do
+      Edit
+  .Main-chat__message-list
+    = render partial: "one-message"
+    = render partial: "one-message"
+    = render partial: "one-message"
+    = render partial: "one-message"
+  .Main-chat__message-form
+    = form_with url: "#", class: "Form" do |form|
+      .Form__contents
+        = form.text_field :message, class: "Form__contents--message", placeholder: "type a message"
+        = form.label :image, class: "Form__contents--image" do
+          = icon('fas', 'image', class: "Form__contents--image--icon")
+          = form.file_field :image, class: "Form__contents--image--input"
+      = form.submit value: "Send", class: "Form__submit"
+
+
+.test
+  .test__1
+    .content
+  .test__1
+  .test__2
+
+.test3
+  .test3__1
+    .content
+
+.test__1
