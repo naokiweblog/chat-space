@@ -2,22 +2,19 @@
   .Main-chat__group-info
     .Main-chat__group-info--left
       .current-group
-        test
+        = @group.name
       %ul.Member
         Member：
         %li.Member__example
-          masa
-    = link_to "#", class: "Main-chat__group-info--edit" do
+          = @group.users.pluck(:name).join(",")
+    = link_to edit_group_path(@group.id), class: "Main-chat__group-info--edit" do
       Edit
   .Main-chat__message-list
-    = render partial: "one-message"
-    = render partial: "one-message"
-    = render partial: "one-message"
-    = render partial: "one-message"
+    = render = render partial: 'message', collection: @messages
   .Main-chat__message-form
-    = form_with url: "#", class: "Form" do |form|
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |form|
       .Form__contents
-        = form.text_field :message, class: "Form__contents--message", placeholder: "type a message"
+        = form.text_field :content, class: "Form__contents--message", placeholder: "type a message"
         = form.label :image, class: "Form__contents--image" do
           = icon('fas', 'image', class: "Form__contents--image--icon")
           = form.file_field :image, class: "Form__contents--image--input"
