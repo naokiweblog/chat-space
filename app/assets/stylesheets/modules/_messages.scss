@@ -52,17 +52,21 @@ $main-white: #fafafa;
   &__group-list {
     background-color: #2f3e51;
     height: calc(100vh - 100px);
+    overflow: scroll;
     &--example {
-      color: $text-white;
-      font-weight: bold;
       padding: 20px 20px 40px;
-      .group-name {
-        font-size: 15px;
-        margin-bottom: 5px;
-      }
-      .group-message {
-        font-size: 11px;
-      }
+      &--link {
+        text-decoration: none;
+        color: $text-white;
+        font-weight: bold;
+        &--name {
+          font-size: 15px;
+          margin-bottom: 5px;
+        }
+        &--message {
+          font-size: 11px;
+        }
+      }      
     }
   }
 }
@@ -106,6 +110,7 @@ $main-white: #fafafa;
     background-color: $main-white;
     height: calc(100vh - 190px);
     padding: 35px 0 0 40px;
+    overflow: scroll;
     .One-message {
       margin-bottom: 46px;
       &__prof {
