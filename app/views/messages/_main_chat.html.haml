@@ -12,10 +12,10 @@
   .Main-chat__message-list
     = render = render partial: 'message', collection: @messages
   .Main-chat__message-form
-    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |form|
+    = form_with model: [@group, @message], html: {class: "Form"}, id: "form", local: true do |form|
       .Form__contents
         = form.text_field :content, class: "Form__contents--message", placeholder: "type a message"
         = form.label :image, class: "Form__contents--image" do
           = icon('fas', 'image', class: "Form__contents--image--icon")
           = form.file_field :image, class: "Form__contents--image--input"
-      = form.submit value: "Send", class: "Form__submit"
+      = form.submit value: "Send", class: "Form__submit", data: {disable_with: 'Send'}
