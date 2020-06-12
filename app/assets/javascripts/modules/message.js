@@ -1,8 +1,9 @@
 $(function(){
+
   function buildHTML(message){
     if (message.image) {
       let html =
-      `<div class="One-message">
+      `<div class="One-message" data-message-id=${message.id}>
         <div class="One-message__prof">
           <div class="One-message__prof--name">
             ${message.user_name}
@@ -21,7 +22,7 @@ $(function(){
       return html
     } else {
       let html =
-      `<div class="One-message">
+      `<div class="One-message" data-message-id=${message.id}>
         <div class="One-message__prof">
           <div class="One-message__prof--name">
             ${message.user_name}
@@ -60,6 +61,7 @@ $(function(){
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
+      $('.Form__submit').prop("disabled", false);
     });
   });
 });
